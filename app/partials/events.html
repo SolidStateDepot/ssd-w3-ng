@@ -1,0 +1,20 @@
+<div ng-control="EventCtrl" class="content-main">
+	<h2 translate>SSD_EVENT_CALENDAR</h2>
+    <p>{{'SSD_SCHED_THRU' | translate}} <a href="http://www.meetup.com/SolidStateDepot/events/">{{'OUR_MEETUP_ACCT' | translate}}</a>.  {{'SSD_CLASS_INFO_1' | translate}}</p>
+    <div class="wrap-calendar">
+        <div class="{{calLoadingClass}} loaderoverlay span8">{{'LOADING_CALENDAR' | translate}}</div>
+        <div ui-calendar="uiConfig.calendar" class="span8 calendar" ng-model="eventSources"></div>
+        <div class="wrap-overlay {{evtOverlayClass}}">
+        	<div class="overlay-content">
+                <h3 class="evt-title">{{eventDetails.title}}</h3>
+                <dl>
+                    <dt>{{'START_TIME' | translate}}</dt>
+                    <dd>{{eventDetails.start}}</dd>
+                </dl>
+                <a href="{{eventDetails.event_url}}" class="btn btn-default btn-callout" target="_blank">{{'VIEW_EVENT_ON_MEETUP' | translate}}</a>
+                <hr />
+                <a href="" ng-click="closeEventDialog();" class="btn btn-default btn-wide">{{'CLOSE' | translate}}</a>
+			</div>
+        </div>
+    </div>
+</div>

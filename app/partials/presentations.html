@@ -1,0 +1,11 @@
+<div ng-controller="ProjectCtrl" class="content-main">
+    <div class="container">
+	    <h2 translate>SSD_PRESENTATIONS</h2>
+        <p translate>SSD_PRESENTATIONS_INTRO</p>
+        <div class="row" ng-repeat="proj in presentations">
+        	<div class="col-sm-4">{{proj.name}}</div>
+        	<div class="col-sm-2">{{proj.type}}</div>
+        	<div class="col-sm-6"><a href="{{proj.url}}" rel="external">{{proj.url}}</a></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<div ng-controller="ProjectCtrl" class="content-main">
+    <div class="container ssd-docs">
+	    <h2 translate>DOCS</h2>
+        <table>
+        <thead>
+        	<tr>
+            	<th scope="row">Name</th>
+        		<th scope="row">Type</th>
+        		<th scope="row">Desc</th>
+            </tr>
+        </thead>
+        <tbody>
+        	<tr ng-repeat="doc in docs">
+            	<td><a href="{{doc.url}}" target="_blank" rel="external">{{doc.name | translate}}</a></td>
+                <td>{{doc.type | translate}}</td>
+                <td>{{doc.desc | translate}}</td>
+			</tr>
+        </tbody>
+    </div>
+</div>

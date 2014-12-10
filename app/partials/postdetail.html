@@ -1,0 +1,7 @@
+<div ng-controller="PostDetailCtrl" class="content-main">
+    <div class="container">
+	    <h2>{{post.title}}</h2>
+	    <p class="post-date">{{'CREATED' | translate}}&nbsp;{{post.date}}::{{'MODIFIED' | translate}}&nbsp;{{post.modified}}</p>
+        <div class="post-content" ng-bind-html="post.content"></div>
+    </div>
+</div>

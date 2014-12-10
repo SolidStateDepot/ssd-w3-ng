@@ -1,0 +1,25 @@
+<div ng-control="ContactSSDCtrl" class="content-main">
+	<h2 translate>SSD_CONTACTS</h2>
+    <h3 translate>PHYSICAL</h3>
+    <address>The Boulder Hackerspace a.k.a. Solid State Depot<br>
+    1965 33rd Street, Unit B<br>
+    Boulder, CO  80301<br>
+    <dl class="latlong clearfix"><dt><abbr title="latitude">Lat</abbr></dt><dd>40.0216838</dd><dt><abbr title="longitude">Long</abbr></dt><dd>-105.2501556</dd></dl>
+    </address>
+    <h5 translate>MAP</h5>
+    <div id="map_canvas">
+        <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options">
+			<ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id">
+        </ui-gmap-marker>
+        </ui-gmap-google-map>
+    </div>
+    <h5>{{'DIRECTIONS' | translate}}</h5>
+    <ul>
+    	<li><a href="https://www.google.com/maps/dir//Solid+State+Depot,+1965+33rd+St,+Boulder,+CO+80301/@40.0217149,-105.3240373,12z/data=!3m1!4b1!4m9!4m8!1m0!1m5!1m1!1s0x876bf20705e75a11:0xc9b1ef65c833d354!2m2!1d-105.250047!2d40.021607!3e1" target="_blank" translate>CYCLING_DIRECTIONS</a></li>
+    	<li><a href="https://www.google.com/maps/dir//Solid+State+Depot,+1965+33rd+St,+Boulder,+CO+80301/@40.0217149,-105.3240373,12z/data=!3m1!4b1!4m9!4m8!1m0!1m5!1m1!1s0x876bf20705e75a11:0xc9b1ef65c833d354!2m2!1d-105.250047!2d40.021607!3e0" target="_blank" translate>DRIVING_DIRECTIONS</a></li>
+    	<li><a href="https://www.google.com/maps/dir//Solid+State+Depot,+1965+33rd+St,+Boulder,+CO+80301/@40.0217149,-105.3240373,12z/data=!3m1!4b1!4m9!4m8!1m0!1m5!1m1!1s0x876bf20705e75a11:0xc9b1ef65c833d354!2m2!1d-105.250047!2d40.021607!3e4" target="_blank" translate>FLYING_DIRECTIONS</a></li>
+	</ul>
+    <h3 translate>VIRTUAL</h3>
+    <p><a href="https://groups.google.com/forum/?fromgroups#!forum/boulder-hackerspace-public" translate>BHS_GOOGLE_GROUP</a> {{'BHS_GOOGLE_GROUP_AVAIL' | translate}}.</p>
+    <p>{{'EMAIL_US' | translate}} <a href="mailto:boulderhackerspace@gmail.com">boulderhackerspace@gmail.com</a></p>
+</div>

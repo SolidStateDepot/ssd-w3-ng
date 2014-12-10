@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en" ng-app="SSDW3">
+<head>
+    <meta charset="utf-8">
+    <title>Solid State Depot - The Boulder Hackerspace</title>
+    <link rel="icon" type="image/vnd.microsoft.icon" href="favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+	<link href='http://fonts.googleapis.com/css?family=Russo+One|Audiowide|Marmelad' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/app.css" />
+    <link rel="stylesheet" href="lib/fullcalendar/fullcalendar.min.css" />
+    <link rel="stylesheet" href="lib/fullcalendar/fullcalendar.print.css" />
+    <link href="css/fonts.css" rel="stylesheet" type="text/css" />
+    <link href="css/slides.css" rel="stylesheet" type="text/css" />
+    <link href="css/gallery.css" rel="stylesheet" type="text/css" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="generator" content="Longevity Software LLC, Free Beachler" />
+    <meta property='og:type' content='blog' />
+    <meta property='og:title' content='Solid State Depot - The Boulder Hackerspace' />
+    <meta property='og:url' content='http://boulderhackerspace.com' />
+    <meta property='og:site_name' content='Solid State Depot - The Boulder Hackerspace' />
+    <meta property='og:locale' content='en_US' /><link rel="stylesheet" type="text/css" href="http://boulderhackerspace.com/wp-content/plugins/wp-recaptcha/recaptcha.css" />
+<script type="text/javascript">var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-30084037-1']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+<body>
+	<div ng-controller="AppCtrl">
+		<nav class="navbar navbar-default {{headerBgClass}}" id="header_util_nav">
+            <div class="logo"><a href="" ng-click="goToNav('/');"><img ng-src="{{logoSrc}}"></a></div>
+	    	<h1 class="app-title" translate>TITLE_BHS</h1>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="wrap-navbar collapse navbar-collapse"
+				ng-class="!navCollapsed && 'in'" ng-click="navCollapsed=true">
+				<ul class="nav navbar-nav navbar-right utilnav">
+					<li class="dropdown"><a href="#" class="dropdown-toggle"><em
+							class="icon-align-justify"></em>&nbsp;<span translate>LANGUAGE</span></a>
+						<ul class="dropdown-menu">
+							<li><a ng-click="setPreferredLanguage('en_US');" translate>ENGLISH</a></li>
+						</ul></li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</nav>
+		<nav class="navbar navbar-default" role="navigation">
+			<!-- toggle nav for mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle"
+					ng-init="navCollapsed = true"
+					ng-click="navCollapsed = !navCollapsed">
+					<span class="sr-only"></span><span
+						class="icon-bar"></span><span class="icon-bar"></span><span
+						class="icon-bar"></span>
+				</button>
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse"
+				ng-class="!navCollapsed && 'in'" ng-click="navCollapsed=true">
+				<ul class="nav navbar-nav navbar-right topnav">
+					<li ng-repeat="nav in topnav"
+						class="{{nav.active && 'active' || ''}}"><a
+						ng-click="goToNav(nav.path)" ng-bind="nav.label | translate"></a></li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</nav>
+    </div>
+	<div class="wrap-container container">
+    	<div class="row">
+            <div class="col-sm-3">
+		    	<div class="row wrap-friends" ng-controller="FriendsCtrl">
+	                <h6 translate>FRIENDS</h6>
+	                <ul>
+	                    <li ng-repeat="friends in friendsLinks"><a href="{{friends.url}}">{{friends.name}}</a></li>
+	                </ul>
+	            </div>
+		    	<div class="row wrap-recent-posts" ng-controller="RecentPostsHomeCtrl">
+	                <h6 translate>RECENT_POSTS</h6>
+	                <ul>
+	                    <li ng-repeat="post in recentPosts"><a href="{{post.url}}">{{post.title}}</a></li>
+	                </ul>
+	            </div>
+            </div>
+            <div class="col-sm-9" ng-view></div>
+        </div>
+    </div>
+
+    <footer class="wrap-footer container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div>
+                    <p class="app-info poweredby">
+                        <span class="app-title" ng-bind="'APP_TITLE' | translate">Solid State Depot Website</span>&nbsp;v-<span app-version></span><br>&copy; Copyright Boulder Hackerspace a.k.a. Solid State Depot<br>
+                        <span class="glyphicon">&#xe019;</span>&nbsp;<a href="https://github.com/SolidStateDepot/ssd-w3-ng/tree/gh-pages" translate>POWER_BY</a> Angular JS, Bootstrap CSS, FullCalendar, JQuery, Angular Calendar UI, Github, <span translate>AND_MORE</span>.<br>
+                        <span class="glyphicon">&#xe019;</span>&nbsp;{{'BUILT_BY' | translate}} <a href="http://www.longevitysoft.com">Longevity Software LLC</a>.
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div>
+                    <a href="#/contact"><img src="img/ssd-stamp-angle.png"
+                        alt="Solid State Depot Stamp" class="pull-right" style="margin-right: 1em;" />
+                    <address style="text-align: right;">The Boulder Hackerspace a.k.a. Solid State Depot<br>1965 33rd Street, Unit B<br>Boulder, CO  80301</address></a>
+                </div>
+                <div id="facebookTwitter" class="pull-right">
+                    <a
+                        href="https://www.facebook.com/solidstatedepot"><img
+                        src="http://boulderhackerspace.com/wp-content/themes/TechPlus/images/facebook.png" width="24" height="25"
+                        alt="Facebook icon"></a><a
+                        href="https://twitter.com/SolidStateDepot"><img
+                        src="http://boulderhackerspace.com/wp-content/themes/TechPlus/images/twitter.png" width="24" height="25"
+                        alt="Twitter icon"></a>
+                </div>
+                <div class="clearfix"><!-- nowspace --></div>
+            </div>
+        </div>
+    </footer>
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+  or later version that works with bootstrap
+  -->
+	<script src="lib/fullcalendar/lib/jquery.min.js"></script>
+	<script src="lib/fullcalendar/lib/jquery-ui.custom.min.js"></script>
+	<script src="lib/angular/angular.js"></script>
+    <script src="lib/angular/angular-route.js"></script>
+    <script src="lib/angular/angular-resource.js"></script>
+    <script src="lib/angular/angular-sanitize.js"></script>
+    <script src="lib/angular/angular-cookies.js"></script>
+    <script src="lib/angular/angular-animate.js"></script>
+    <script src="lib/TweenMax.min.js"></script>
+    <script src="lib/angular-translate/angular-translate.js"></script>
+    <script src="lib/angular-translate/angular-translate-loader-static-files.js"></script>
+    <script src="lib/angular-translate/angular-translate-storage-cookie.js"></script>
+    <script src="lib/ui-bootstrap-tpls-0.10.0.min.js"></script>
+	<script src="lib/fullcalendar/lib/moment.min.js"></script>
+	<script src="lib/fullcalendar/fullcalendar.js"></script>
+	<script src="lib/fullcalendar/lang-all.js"></script>
+	<script src="lib/fullcalendar/gcal.js"></script>
+	<script src="lib/lodash/dist/lodash.js"></script>
+	<script src="lib/angular-google-maps/dist/angular-google-maps.js"></script>
+	<script src="lib/ui-calendar/calendar.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/filters.js"></script>
+    <script src="js/directives.js"></script>
+</body>
+</html>

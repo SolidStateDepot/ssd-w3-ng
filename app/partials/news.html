@@ -1,0 +1,47 @@
+<div ng-control="NewsCtrl">
+	<div class="container wrap-content-news-main">
+		<div class="container slider">
+			<img ng-repeat="slide in slides"
+				class="slide slide-animation nonDraggableImage"
+				ng-swipe-right="nextSlide()" ng-swipe-left="prevSlide()"
+				ng-hide="!isCurrentSlideIndex($index)" ng-src="{{slide.image}}">
+			<a class="arrow next" href="#/news" ng-click="prevSlide()"></a> <a
+				class="arrow prev" href="#/news" ng-click="nextSlide()"></a>
+			<nav class="nav">
+				<div class="wrapper">
+					<ul class="dots">
+						<li class="dot" ng-repeat="slide in slides"><a href="#/news"
+							ng-class="{'active':isCurrentSlideIndex($index)}"
+							ng-click="setCurrentSlideIndex($index);">{{slide.description}}</a></li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+		<div id="content container">
+			<p>
+				<pagination total-items="allPostItems" page="currentPage"
+					items-per-page="pageSize" class="pagination-sm"
+					boundary-links="true" rotate="false"></pagination>
+			</p>
+			<div class="row">
+				<div class="{{newsLoadingClass}} loaderoverlay span8">{{loadingLabel}}</div>
+			</div>
+			<div class="row" ng-repeat="post in pagedPosts[currentPage - 1]">
+				<div class="ng-wrap-wp-post" >
+					<h1 class="post-title">
+						<a href="{{post.url}}">{{post.title}}</a>
+					</h1>
+					<div class="post-content" ng-bind-html="post.content"></div>
+					<hr />
+				</div>
+			</div>
+			<p>
+				<pagination total-items="allPostItems" page="currentPage"
+					items-per-page="pageSize" class="pagination-sm"
+					boundary-links="true" rotate="false"></pagination>
+			</p>
+			<pre class="pagination-header">Page: {{currentPage}} of {{pagedPosts.length}}</pre>
+		</div>
+	</div>
+</div>
+</div>

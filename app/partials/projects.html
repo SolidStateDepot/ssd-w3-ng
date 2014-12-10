@@ -1,0 +1,11 @@
+<div ng-controller="ProjectCtrl" class="content-main">
+    <div class="container">
+	    <h2 translate>SSD_ON_GITHUB</h2>
+        <p translate>PROJ_SSD_GITHUB_INTRO</p>
+        <div class="row" ng-repeat="proj in ghprojects">
+        	<div class="col-sm-4">{{proj.name}}</div>
+        	<div class="col-sm-2">{{proj.original && 'ORIGINAL' || 'FORKED' | translate}}</div>
+        	<div class="col-sm-6"><a href="{{proj.url}}" rel="external">{{proj.url}}</a></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+<div ng-controller="PhotoCtrl" class="content-main">
+	<div class="container">
+		<h2 translate>SSD_ON_FLICKR</h2>
+		<p ng-bind-html="'SSD_FLICKR_INTRO' | translate:'{url1 : \'http://www.flickr.com/groups/solidstatedepot/\'}'"></p>
+		<div id="flickr_gallery">
+			<div class="{{flickrLoadingClass}} loaderoverlay span8">{{'LOADING_GALLERY' | translate}}</div>
+			<div class="{{flickrErrorClass}} loaderError span8">{{'ERROR_MSG_GALLERY_GEN' | translate}}</div>
+			<!-- Layout the large images horizontally using viewwindow
+            to hide the overflow (all but the current image). -->
+			<div class="mainimageshell">
+				<div class="viewwindow">
+					<!--    fullscroller is referenced from the Controller js
+                    to control scrolling -->
+					<ul id="fullscroller" class="fullsizelist" ng-style="listposition">
+						<!-- iterate through all images and display them end to end -->
+						<li ng-repeat="photo in flickrPhotos"><img
+							class="fullsize large" ng-src="{{photo.src}}" /></li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- Display the description of the current image -->
+			<div class="captionshell">
+				<p class="caption">{{selected.title}}</p>
+			</div>
+
+			<div style="clear: both;"></div>
+
+			<!-- Layout the large images horizontally using viewwindow
+            to hide the overflow (all but the current image). -->
+			<div class="thumbsshell">
+				<div class="thumbswrapper">
+					<ul>
+						<!--    Iterate through all images and display them end to end as thumbs -->
+						<li ng-repeat="photo in flickrPhotos">
+							<div class="thumbwrapper">
+								<!--    Note ng-click here calls the scrollTo function found in the
+                                controller and passes it its index. This is used to scroll 
+                                the large image to the correct image -->
+								<a ng-href="" ng-click="scrollTo(photo, $index)"> <img
+									class="thumbnail" ng-src="{{photo.src}}" />
+								</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- Shameless self-promotion -->
+			<div class="logoshell">
+				<a href="http://www.flickr.com/groups/solidstatedepot/"
+					target="_blank" title="{{MORE_SSD_PHOTOS_ON_FLICKR | translate}}"><img
+					src="http://c2.staticflickr.com/6/5253/buddyicons/1620994@N23.jpg?1295994601"
+					alt="{{SSD_LOGO | translate}}" /></a>
+			</div>
+		</div>
+	</div>
+</div>

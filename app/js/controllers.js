@@ -55,7 +55,7 @@ ssdApp.controller('AppCtrl', [
 				label : 'NAV_ABOUT'
 			}, {
 				active : false,
-				path : '/donate',
+				path : '/dues',
 				label : 'NAV_DONATE'
 			} ];
 			$rootScope.thirdlev = { ssdPosts : [], ssdEvents : [] };

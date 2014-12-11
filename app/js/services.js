@@ -10,9 +10,9 @@ services
 				[
 						'$http',
 						function($http) {
-							var proxyWPJson = '../proxy-wp.php';
-							var proxyMeetup = '../proxy-meetup.php';
-							var proxyFlickr = '../proxy-flickr.php';
+							var proxyWPJson = '../app/proxy-wp.php';
+							var proxyMeetup = '../app/proxy-meetup.php';
+							var proxyFlickr = '../app/proxy-flickr.php';
 							var service = {};
 							service.filterHackerspaceDotComJSONHeaderFOO = function(foo) {
 								if (!foo) {

@@ -1,2 +1,9 @@
+.DS_Store
+node_modules
+dist
+.tmp
+bower_components
 proxy-flickr.php
 proxy-meetup.php
+**/proxy-flickr.php
+**/proxy-meetup.php

@@ -6,13 +6,19 @@
     <link rel="icon" type="image/vnd.microsoft.icon" href="favicon.ico" />
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 	<link href='http://fonts.googleapis.com/css?family=Russo+One|Audiowide|Marmelad' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="css/bootstrap.css" />
-    <link rel="stylesheet" href="css/app.css" />
-    <link rel="stylesheet" href="lib/fullcalendar/fullcalendar.min.css" />
-    <link rel="stylesheet" href="lib/fullcalendar/fullcalendar.print.css" />
+    <!-- build:css(.) css/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap-css/css/bootstrap.css">
+    <link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.min.css" />
+    <link rel="stylesheet" href="bower_components/fullcalendar/dist//fullcalendar.print.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) css/main.css -->
+    <link href="css/app.css" rel="stylesheet" type="text/css" />
     <link href="css/fonts.css" rel="stylesheet" type="text/css" />
     <link href="css/slides.css" rel="stylesheet" type="text/css" />
     <link href="css/gallery.css" rel="stylesheet" type="text/css" />
+    <!-- endbuild -->
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="generator" content="Longevity Software LLC, Free Beachler" />
@@ -20,7 +26,7 @@
     <meta property='og:title' content='Solid State Depot - The Boulder Hackerspace' />
     <meta property='og:url' content='http://boulderhackerspace.com' />
     <meta property='og:site_name' content='Solid State Depot - The Boulder Hackerspace' />
-    <meta property='og:locale' content='en_US' /><link rel="stylesheet" type="text/css" href="http://boulderhackerspace.com/wp-content/plugins/wp-recaptcha/recaptcha.css" />
+    <meta property='og:locale' content='en_US' />
 <script type="text/javascript">var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-30084037-1']);
   _gaq.push(['_trackPageview']);
@@ -32,7 +38,10 @@
 </script>
 </head>
 <body>
-	<div ng-controller="AppCtrl">
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+f	<div ng-controller="AppCtrl">
 		<nav class="navbar navbar-default {{headerBgClass}}" id="header_util_nav">
             <div class="logo"><a href="" ng-click="goToNav('/');"><img ng-src="{{logoSrc}}"></a></div>
 	    	<h1 class="app-title" translate>TITLE_BHS</h1>
@@ -122,34 +131,41 @@
             </div>
         </div>
     </footer>
-  <!-- In production use:
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
-  or later version that works with bootstrap
-  -->
-	<script src="lib/fullcalendar/lib/jquery.min.js"></script>
-	<script src="lib/fullcalendar/lib/jquery-ui.custom.min.js"></script>
-	<script src="lib/angular/angular.js"></script>
-    <script src="lib/angular/angular-route.js"></script>
-    <script src="lib/angular/angular-resource.js"></script>
-    <script src="lib/angular/angular-sanitize.js"></script>
-    <script src="lib/angular/angular-cookies.js"></script>
-    <script src="lib/angular/angular-animate.js"></script>
+    <!-- build:js(.) scripts/oldieshim.js -->
+    <!--[if lt IE 9]>
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/json3/lib/json3.js"></script>
+    <![endif]-->
+    <!-- endbuild -->
+    <!-- build:js(.) js/vendor.js -->
+    <!-- bower:js -->
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="bower_components/jquery-ui/ui/minified/jquery-ui.custom.min.js"></script>
+	<script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="lib/TweenMax.min.js"></script>
-    <script src="lib/angular-translate/angular-translate.js"></script>
-    <script src="lib/angular-translate/angular-translate-loader-static-files.js"></script>
-    <script src="lib/angular-translate/angular-translate-storage-cookie.js"></script>
-    <script src="lib/ui-bootstrap-tpls-0.10.0.min.js"></script>
-	<script src="lib/fullcalendar/lib/moment.min.js"></script>
-	<script src="lib/fullcalendar/fullcalendar.js"></script>
-	<script src="lib/fullcalendar/lang-all.js"></script>
-	<script src="lib/fullcalendar/gcal.js"></script>
-	<script src="lib/lodash/dist/lodash.js"></script>
-	<script src="lib/angular-google-maps/dist/angular-google-maps.js"></script>
-	<script src="lib/ui-calendar/calendar.js"></script>
+    <script src="bower_components/angular-translate/angular-translate.js"></script>
+    <script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
+    <script src="bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+	<script src="bower_components/lodash/dist/lodash.js"></script>
+	<script src="bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
+	<script src="bower_components/moment/min/moment.min.js"></script>
+	<script src="bower_components/fullcalendar/dist/fullcalendar.js"></script>
+	<script src="bower_components/fullcalendar/dist/lang-all.js"></script>
+	<script src="bower_components/fullcalendar/dist/gcal.js"></script>
+	<script src="bower_components/angular-ui-calendar/src/calendar.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+	<!-- build:js({.tmp,app}) js/app.js -->
     <script src="js/app.js"></script>
     <script src="js/services.js"></script>
     <script src="js/controllers.js"></script>
     <script src="js/filters.js"></script>
     <script src="js/directives.js"></script>
+    <!-- endbuild -->
 </body>
 </html>

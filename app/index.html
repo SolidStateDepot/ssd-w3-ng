@@ -8,18 +8,17 @@
 	<link href='http://fonts.googleapis.com/css?family=Russo+One|Audiowide|Marmelad' rel='stylesheet' type='text/css'>
     <!-- build:css(.) css/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/bootstrap-css/css/bootstrap.css">
-    <link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.min.css" />
-    <link rel="stylesheet" href="bower_components/fullcalendar/dist//fullcalendar.print.css" />
+    <link rel="stylesheet" href="bower_components/fullcalendar/fullcalendar.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap-css/css/bootstrap.min.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) css/main.css -->
-    <link href="css/app.css" rel="stylesheet" type="text/css" />
-    <link href="css/fonts.css" rel="stylesheet" type="text/css" />
-    <link href="css/slides.css" rel="stylesheet" type="text/css" />
-    <link href="css/gallery.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/app.css" type="text/css" />
+    <link rel="stylesheet" href="css/fonts.css" type="text/css" />
+    <link rel="stylesheet" href="css/slides.css" type="text/css" />
+    <link rel="stylesheet" href="css/gallery.css" type="text/css" />
     <!-- endbuild -->
-
+	<meta name="fragment" content="!" />	<!-- for crawlers -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="generator" content="Longevity Software LLC, Free Beachler" />
     <meta property='og:type' content='blog' />
@@ -41,7 +40,7 @@
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-f	<div ng-controller="AppCtrl">
+	<div id="phantom_wrapper" ng-controller="AppCtrl" data-status="{{phantom_status}}">
 		<nav class="navbar navbar-default {{headerBgClass}}" id="header_util_nav">
             <div class="logo"><a href="" ng-click="goToNav('/');"><img ng-src="{{logoSrc}}"></a></div>
 	    	<h1 class="app-title" translate>TITLE_BHS</h1>
@@ -139,33 +138,33 @@ f	<div ng-controller="AppCtrl">
     <!-- endbuild -->
     <!-- build:js(.) js/vendor.js -->
     <!-- bower:js -->
-	<script src="bower_components/jquery/dist/jquery.min.js"></script>
-	<script src="bower_components/jquery-ui/ui/minified/jquery-ui.custom.min.js"></script>
-	<script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/jquery/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
-    <script src="lib/TweenMax.min.js"></script>
+    <script src="bower_components/angular-loader/angular-loader.js"></script>
     <script src="bower_components/angular-translate/angular-translate.js"></script>
     <script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
     <script src="bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
-    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-	<script src="bower_components/lodash/dist/lodash.js"></script>
-	<script src="bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
-	<script src="bower_components/moment/min/moment.min.js"></script>
-	<script src="bower_components/fullcalendar/dist/fullcalendar.js"></script>
-	<script src="bower_components/fullcalendar/dist/lang-all.js"></script>
-	<script src="bower_components/fullcalendar/dist/gcal.js"></script>
-	<script src="bower_components/angular-ui-calendar/src/calendar.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/lodash/dist/lodash.compat.js"></script>
+    <script src="bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
+    <script src="bower_components/fullcalendar/fullcalendar.js"></script>
+    <script src="bower_components/jquery-ui/ui/jquery-ui.js"></script>
+    <script src="bower_components/angular-ui-calendar/src/calendar.js"></script>
+    <script src="bower_components/bootstrap-css/js/bootstrap.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 	<!-- build:js({.tmp,app}) js/app.js -->
+    <script src="../lib/TweenMax.min.js"></script>
     <script src="js/app.js"></script>
     <script src="js/services.js"></script>
     <script src="js/controllers.js"></script>
     <script src="js/filters.js"></script>
     <script src="js/directives.js"></script>
+    <script src="js/animations.js"></script>
     <!-- endbuild -->
 </body>
 </html>

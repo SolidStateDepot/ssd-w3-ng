@@ -24,27 +24,22 @@
     "package.json"
   ],
   "devDependencies": {
-    "angular-mocks": "~1.2.x"
+    "angular-mocks": "1.x"
   },
   "dependencies": {
-    "angular": "1.2.x",
-    "angular-route": "1.2.x",
-    "angular-sanitize": "1.2.x",
-    "angular-cookies": "1.2.x",
-    "angular-animate": "1.2.x",
-    "angular-loader": "1.2.x",
+    "angular": "1.x",
+    "angular-route": "1.x",
+    "angular-sanitize": "1.x",
+    "angular-cookies": "1.x",
+    "angular-animate": "1.x",
+    "angular-loader": "1.x",
     "angular-translate": "latest",
     "angular-translate-loader-static-files": "latest",
     "angular-translate-storage-cookie": "latest",
     "angular-bootstrap": "latest",
     "angular-google-maps": "2.0.7",
-    "fullcalendar":	"2.x",
-    "angular-ui-calendar": "0.8.1",
+    "fullcalendar": "latest",
+    "angular-ui-calendar": "",
     "bootstrap-css": "~3.x"
-  },
-  "resolutions": {
-    "jquery": "2.1.1",
-    "angular": "1.2.28",
-    "fullcalendar": "2.2.3"
   }
 }

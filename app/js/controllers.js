@@ -5,8 +5,8 @@
 var ssdApp = angular.module('SSDW3.controllers', []);
 
 ssdApp.controller('AppCtrl', [
-		'$scope',
 		'$rootScope',
+		'$scope',
 		'$route',
 		'$window',
 		'$location',
@@ -15,7 +15,7 @@ ssdApp.controller('AppCtrl', [
 		'$sanitize',
 		'$translate',
 		'Rest',
-		function($scope, $rootScope, $route, $window, $location, $routeParams,
+		function($rootScope, $scope, $route, $window, $location, $routeParams,
 				$filter, $sanitize, $translate, Rest) {
 			$scope.topnav = [ {
 				active : false,
@@ -55,7 +55,7 @@ ssdApp.controller('AppCtrl', [
 				label : 'NAV_ABOUT'
 			}, {
 				active : false,
-				path : '/dues',
+				path : '/donate',
 				label : 'NAV_DONATE'
 			} ];
 			$rootScope.thirdlev = { ssdPosts : [], ssdEvents : [] };
@@ -91,14 +91,17 @@ ssdApp.controller('AppCtrl', [
 			};
 			$scope.randomHeaderBg();
 			$scope.randomLogo();
-			//$scope.logoSrc = 'img/ssd_logo_6.png';
+			$rootScope.setPhantomStatusReady = function() {
+				$rootScope.phantom_status = 'ready';
+			};
 		} ]);
 
 ssdApp.controller('ContactSSDCtrl', [
+		'$rootScope',
 		'$scope',
 		'$translate',
 		'GoogleMapApi'.ns(),
-		function($scope, $translate, GoogleMapApi) {
+		function($rootScope, $scope, $translate, GoogleMapApi) {
 			$scope.map = {
 				center : {
 					latitude : 40.0216838,
@@ -110,6 +113,7 @@ ssdApp.controller('ContactSSDCtrl', [
 				scrollwheel : false
 			};
 			GoogleMapApi.then(function(maps) {
+				$rootScope.setPhantomStatusReady();
 			});
 			$scope.marker = {
 				id : 0,
@@ -282,12 +286,14 @@ ssdApp
 																					$scope.postsFilter,
 																					'date',
 																					true);
+																			$rootScope.setPhantomStatusReady();
 																		}, function(error) {
+																			$rootScope.setPhantomStatusReady();
 																			console.log('could not retrieve remainder of news posts - error was \n' + err);
 																		});
-													 
 												}, function(err) {
 													console.log('could not retrieve news posts - error was \n' + err);
+													$rootScope.setPhantomStatusReady();
 												});
 							}	// if
 							$scope.groupToPages = function(items, itemsPerPage,
@@ -324,8 +330,8 @@ console.log(ret);
 								true);
 						} ]);
 
-ssdApp.controller('PostDetailCtrl', ['$scope', '$routeParams', '$sce', '$translate', 'Rest', 
-		function($scope, $routeParams, $sce, $translate, Rest) {
+ssdApp.controller('PostDetailCtrl', ['$rootScope', '$scope', '$routeParams', '$sce', '$translate', 'Rest', 
+		function($rootScope, $scope, $routeParams, $sce, $translate, Rest) {
 			$scope.post = { title : '', contents : '', date : '', modified : ''};
 			// get ID etc. from url hash
 			var p = Rest.getPostDetails($routeParams.postId);
@@ -338,15 +344,18 @@ ssdApp.controller('PostDetailCtrl', ['$scope', '$routeParams', '$sce', '$transla
 						.replace('&#8217;', '\'');
 					$scope.post.content = $sce.trustAsHtml(data.data.post.content);
 				}
+				$rootScope.setPhantomStatusReady();
 			}, function(err) {
+				$rootScope.setPhantomStatusReady();
 				console.log('error retrieving post content - error was\n' + err);
 			});
 }]);
-ssdApp.controller('DonateCtrl', [ '$scope', '$sanitize', '$translate',
-		function($scope, $sanitize, $translate) {
+ssdApp.controller('DonateCtrl', [ '$rootScope', '$scope', '$sanitize', '$translate',
+		function($rootScope, $scope, $sanitize, $translate) {
 			$scope.mainContent1 = $translate.instant('DONATE_CONTENT_1');
 			$scope.mainContent2 = $translate.instant('DONATE_CONTENT_2');
 			$scope.mainContent3 = $translate.instant('DONATE_CONTENT_3');
+			$rootScope.setPhantomStatusReady();
 		} ]);
 
 ssdApp
@@ -401,15 +410,18 @@ ssdApp
 										}
 										$scope.eventSources = [ $rootScope.thirdlev.ssdEvents ];
 										$scope.calLoadingClass = 'hidden';
+										$rootScope.setPhantomStatusReady();
 										console.log("updated cal events");
 									} else {
 										$scope.calLoadingClass = 'hidden';
+										$rootScope.setPhantomStatusReady();
 										console
 												.log("could not retrieve cal events");
 									}
 								};
 								p.error = function(err) {
 									$scope.calLoadingClass = 'hidden';
+									$rootScope.setPhantomStatusReady();
 									console
 											.log("could not retrieve cal events");
 								};
@@ -417,18 +429,20 @@ ssdApp
 							}
 						} ]);
 
-ssdApp.controller('WikiCtrl', [ '$scope', '$translate',
-		function($scope, $translate) {
+ssdApp.controller('WikiCtrl', [ '$rootScope', '$scope', '$translate',
+		function($rootScope, $scope, $translate) {
+				$rootScope.setPhantomStatusReady();
 		} ]);
 
 ssdApp
 		.controller(
 				'AboutCtrl',
 				[
+						'$rootScope',
 						'$scope',
 						'$sanitize',
 						'$translate',
-						function($scope, $sanitize, $translate) {
+						function($rootScope, $scope, $sanitize, $translate) {
 							$scope.mainContent1 = $translate
 									.instant(
 											'ABOUT_CONTENT',
@@ -436,20 +450,23 @@ ssdApp
 												url2 : 'http://www.youtube.com/watch?v=u-jT4Nxbyuk&p=20D9A9637AC71B71',
 												url1 : 'http://www.hackerspaces.org/'
 											});
+							$rootScope.setPhantomStatusReady();
 						} ]);
 
-ssdApp.controller('SafetyFirstCtrl', [ '$scope', '$translate',
-		function($scope, $translate) {
+ssdApp.controller('SafetyFirstCtrl', [ '$rootScope', '$scope', '$translate',
+		function($rootScope, $scope, $translate) {
+			$rootScope.setPhantomStatusReady();
 		} ]);
 
 ssdApp
 		.controller(
 				'PhotoCtrl',
 				[
+						'$rootScope',
 						'$scope',
 						'$translate',
 						'Rest',
-						function($scope, $translate, Rest) {
+						function($rootScope, $scope, $translate, Rest) {
 							$scope.flickrLoadingClass = 'visible';
 							$scope.flickrErrorClass = 'hidden';
 							var p = Rest.getSSDFlickrPhotos();
@@ -461,13 +478,6 @@ ssdApp
 														"jsonFlickrApi",
 														data.data);
 												f(function(data) {
-													// http://c3.staticflickr.com/3/2923/14104949136_70aa10d478_n.jpg
-													/*
-													 * jsonFlickrApi({"photos":{"page":1,"pages":3,"perpage":100,"total":"292","photo":[{"id":"14104949136","owner":"8728129@N05","secret":"70aa10d478","server":"2923","farm":3,"title":"Horse
-													 * race
-													 * game","ispublic":1,"isfriend":0,"isfamily":0,"safe":0}]},"stat":"ok"})
-													 */
-
 													if (data.stat == 'fail') {
 														console.log('failed to get photos.  err=');
 														console.log(data);
@@ -494,12 +504,14 @@ ssdApp
 															$scope
 														}
 													}
+													$rootScope.setPhantomStatusReady();
 												});
 											}, function(err) {
 												console.log('failed to get photos.  err=');
 												console.log(err);
 												$scope.flickrLoadingClass = 'hidden';
 												$scope.flickrErrorClass = 'visible';
+												$rootScope.setPhantomStatusReady();
 											});
 							// Scroll to appropriate position based on image
 							// index and width
@@ -599,9 +611,10 @@ ssdApp
 		.controller(
 				'PresentCtrl',
 				[
+						'$rootScope',
 						'$scope',
 						'$translate',
-						function($scope, $translate) {
+						function($rootScope, $scope, $translate) {
 							// TODO translate l10n
 							$scope.presentations = [
 									{
@@ -614,15 +627,17 @@ ssdApp
 										type : 'S5',
 										url : 'https://github.com/SolidStateDepot/ssd-class-oscad-101'
 									} ];
+							$rootScope.setPhantomStatusReady();
 						} ]);
 
 ssdApp
 		.controller(
 				'ProjectCtrl',
 				[
+						'$rootScope',
 						'$scope',
 						'$translate',
-						function($scope, $translate) {
+						function($rootScope, $scope, $translate) {
 							$scope.ghprojects = [
 									{
 										name : 'printer-3d',
@@ -649,15 +664,17 @@ ssdApp
 										original : true,
 										url : 'https://github.com/SolidStateDepot/SSD-Workspace-Models'
 									} ];
+							$rootScope.setPhantomStatusReady();
 						} ]);
 
 ssdApp
 		.controller(
 				'DocsCtrl',
 				[
+						'$rootScope',
 						'$scope',
 						'$translate',
-						function($scope, $translate) {
+						function($rootScope, $scope, $translate) {
 							$scope.docs = [
 									{
 										name : 'DOC_TITLE_RELEASE',
@@ -683,46 +700,5 @@ ssdApp
 										desc : 'DOC_DESC_NEWMEMBERORIENT',
 										url : 'http://boulderhackerspace.com/wiki/index.php?title=New_Member_Orientation'
 									}, ];
+							$rootScope.setPhantomStatusReady();
 						} ]);
-
-ssdApp.animation('.slide-animation', function() {
-	return {
-		beforeAddClass : function(element, className, done) {
-			var scope = element.scope();
-
-			if (className == 'ng-hide') {
-				var finishPoint = element.parent().width();
-				if (scope.direction !== 'right') {
-					finishPoint = -finishPoint;
-				}
-				TweenMax.to(element, 0.5, {
-					left : finishPoint,
-					onComplete : done
-				});
-			} else {
-				done();
-			}
-		},
-		removeClass : function(element, className, done) {
-			var scope = element.scope();
-
-			if (className == 'ng-hide') {
-				element.removeClass('ng-hide');
-
-				var startPoint = element.parent().width();
-				if (scope.direction === 'right') {
-					startPoint = -startPoint;
-				}
-
-				TweenMax.fromTo(element, 0.5, {
-					left : startPoint
-				}, {
-					left : 0,
-					onComplete : done
-				});
-			} else {
-				done();
-			}
-		}
-	};
-});

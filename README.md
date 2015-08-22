@@ -8,9 +8,14 @@ This project was seeded from the AngularJS default seed project.
 
 ### Running the app in development
 
-You can pick one of these options:
+- Install Git, NodeJS, NPM, Bower, Grunt
+- Clone this Git repo
+- cd [top-level-dir-of-this-project]
+- execute:  bower install
+- You should see the dependencies defined in bower.json now in bower_components/
 
-* serve this repository with your webserver
+To run the app locally pick one of these options:
+* serve this repository with your own webserver such as apache or IIS
 * install node.js and run `scripts/web-server.js`
 
 Then navigate your browser to `http://localhost:<port>/app/index.html` to see the app running in your browser.

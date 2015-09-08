@@ -8,7 +8,7 @@ var appDependencies = ['ngRoute',
 	'ngAnimate',
 	'ui.bootstrap',
 	'pascalprecht.translate',
-	'google-maps'.ns(),
+	'uiGmapgoogle-maps',
 	'ui.calendar',
 	'SSDW3.filters',
 	'SSDW3.services',
@@ -29,8 +29,8 @@ var dependencies = (mocks ? mocks : []).concat(appDependencies);
  */
 // Declare app level module which depends on filters, and services
 var ssdApp = angular.module('SSDW3', appDependencies);
-ssdApp.config(['$routeProvider', '$translateProvider', 'GoogleMapApiProvider'.ns(),
-		function($routeProvider, $translateProvider, GoogleMapApi) {
+ssdApp.config(['$routeProvider', '$translateProvider', 'uiGmapGoogleMapApiProvider',
+		function($routeProvider, $translateProvider, uiGmapGoogleMapApiProvider) {
 	$routeProvider.when('/donate', {templateUrl: 'partials/donate.html', controller: 'DonateCtrl'});
 	$routeProvider.when('/news', {templateUrl: 'partials/news.html', controller: 'NewsCtrl'});
 	$routeProvider.when('/events', {templateUrl: 'partials/events.html', controller: 'EventCtrl'});
@@ -49,11 +49,16 @@ ssdApp.config(['$routeProvider', '$translateProvider', 'GoogleMapApiProvider'.ns
 	});
 	$translateProvider.preferredLanguage('en_US');
 	$translateProvider.useCookieStorage();
-	GoogleMapApi.configure({
+	uiGmapGoogleMapApiProvider.configure({
+        key: '0So5Hp0UV09dLV9rOLqmOv9XXj-SBCR9zxC9L0Q',
+        v: '3.20', //defaults to latest 3.X anyhow
+        libraries: 'weather,geometry,visualization'
+    });
+/*	GoogleMapApi.configure({
 		//key: '0So5Hp0UV09dLV9rOLqmOv9XXj-SBCR9zxC9L0Q',
 		v: '3.17',
 		libraries: 'weather,geometry,visualization'
-	});
+	}); */
 }]);
 /**
  * Start of block required for e2e tests

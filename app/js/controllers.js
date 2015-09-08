@@ -100,8 +100,8 @@ ssdApp.controller('ContactSSDCtrl', [
 		'$rootScope',
 		'$scope',
 		'$translate',
-		'GoogleMapApi'.ns(),
-		function($rootScope, $scope, $translate, GoogleMapApi) {
+		'uiGmapGoogleMapApiProvider',
+		function($rootScope, $scope, $translate, uiGmapGoogleMapApiProvider) {
 			$scope.map = {
 				center : {
 					latitude : 40.0216838,
@@ -112,7 +112,7 @@ ssdApp.controller('ContactSSDCtrl', [
 			$scope.options = {
 				scrollwheel : false
 			};
-			GoogleMapApi.then(function(maps) {
+			uiGmapGoogleMapApiProvider.then(function(maps) {
 				$rootScope.setPhantomStatusReady();
 			});
 			$scope.marker = {

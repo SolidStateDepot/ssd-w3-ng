@@ -27,7 +27,7 @@
     "angular-mocks": "1.x"
   },
   "dependencies": {
-    "angular": "1.x",
+    "angular": "^1.4.5",
     "angular-route": "1.x",
     "angular-sanitize": "1.x",
     "angular-cookies": "1.x",
@@ -41,5 +41,8 @@
     "fullcalendar": "latest",
     "angular-ui-calendar": "",
     "bootstrap-css": "~3.x"
+  },
+  "resolutions": {
+    "angular": ">=1.3.0"
   }
 }

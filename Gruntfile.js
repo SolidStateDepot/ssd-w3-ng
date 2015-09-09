@@ -359,7 +359,24 @@ module.exports = function (grunt) {
         configFile: './config/karma.conf.js',
         singleRun: true
       }
-    }
+    },
+
+    // remote deployment - would be nice except plaintext ftp == deal-breaker!
+    deploy: {
+        liveservers: {
+          options:{
+            servers: [{
+              host: '123.123.123.12',
+              port: 22,
+              username: 'username',
+              password: 'password'
+            }],
+            cmds_before_deploy: ["some cmds you may want to exec before deploy"],
+            cmds_after_deploy: ["forever restart", "some other cmds you want to exec after deploy"],
+            deploy_path: 'your deploy path in server'
+          }
+        }
+      }
   });
 
 

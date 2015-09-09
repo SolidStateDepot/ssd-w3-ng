@@ -30,22 +30,22 @@ var dependencies = (mocks ? mocks : []).concat(appDependencies);
 // Declare app level module which depends on filters, and services
 var ssdApp = angular.module('SSDW3', appDependencies);
 ssdApp.config(['$routeProvider', '$translateProvider', 'uiGmapGoogleMapApiProvider',
-		function($routeProvider, $translateProvider, uiGmapGoogleMapApiProvider) {
-	$routeProvider.when('/donate', {templateUrl: 'partials/donate.html', controller: 'DonateCtrl'});
-	$routeProvider.when('/news', {templateUrl: 'partials/news.html', controller: 'NewsCtrl'});
-	$routeProvider.when('/events', {templateUrl: 'partials/events.html', controller: 'EventCtrl'});
-	$routeProvider.when('/wiki', {templateUrl: 'partials/wiki.html', controller: 'WikiCtrl'});
-	$routeProvider.when('/presents', {templateUrl: 'partials/presentations.html', controller: 'PresentCtrl'});
-	$routeProvider.when('/contact', {templateUrl: 'partials/contactssd.html', controller: 'ContactSSDCtrl'});
-	$routeProvider.when('/projects', {templateUrl: 'partials/projects.html', controller: 'PresentCtrl'});
-	$routeProvider.when('/photos', {templateUrl: 'partials/photos.html', controller: 'ContactSSDCtrl'});
-	$routeProvider.when('/docs', {templateUrl: 'partials/docs.html', controller: 'DocsCtrl'});
-	$routeProvider.when('/about', {templateUrl: 'partials/about.html', controller: 'AboutCtrl'});
-	$routeProvider.when('/postdetail/:postId', {templateUrl: 'partials/postdetail.html', controller: 'PostDetailCtrl'});
-	$routeProvider.otherwise({redirectTo: '/news'});
-	$translateProvider.useStaticFilesLoader({
-		prefix : 'l10n/',
-		suffix : '.json'
+	function($routeProvider, $translateProvider, uiGmapGoogleMapApiProvider) {
+		$routeProvider.when('/donate', {templateUrl: 'partials/donate.html', controller: 'DonateCtrl'});
+		$routeProvider.when('/news', {templateUrl: 'partials/news.html', controller: 'NewsCtrl'});
+		$routeProvider.when('/events', {templateUrl: 'partials/events.html', controller: 'EventCtrl'});
+		$routeProvider.when('/wiki', {templateUrl: 'partials/wiki.html', controller: 'WikiCtrl'});
+		$routeProvider.when('/presents', {templateUrl: 'partials/presentations.html', controller: 'PresentCtrl'});
+		$routeProvider.when('/contact', {templateUrl: 'partials/contactssd.html', controller: 'ContactSSDCtrl'});
+		$routeProvider.when('/projects', {templateUrl: 'partials/projects.html', controller: 'PresentCtrl'});
+		$routeProvider.when('/photos', {templateUrl: 'partials/photos.html', controller: 'ContactSSDCtrl'});
+		$routeProvider.when('/docs', {templateUrl: 'partials/docs.html', controller: 'DocsCtrl'});
+		$routeProvider.when('/about', {templateUrl: 'partials/about.html', controller: 'AboutCtrl'});
+		$routeProvider.when('/postdetail/:postId', {templateUrl: 'partials/postdetail.html', controller: 'PostDetailCtrl'});
+		$routeProvider.otherwise({redirectTo: '/news'});
+		$translateProvider.useStaticFilesLoader({
+			prefix : 'l10n/',
+			suffix : '.json'
 	});
 	$translateProvider.preferredLanguage('en_US');
 	$translateProvider.useCookieStorage();

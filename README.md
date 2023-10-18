@@ -1,5 +1,6 @@
 # SSD W3 NG
-SSD official website built in AngularJS.
+Old SSD official website built in AngularJS.
+This was the website for awhile, but is no longer, and the code is still sitting here. This repository has been archived.
 
 ## Background
 This project was seeded from the AngularJS default seed project.
@@ -27,7 +28,7 @@ This site is designed to be run under Apache or another similar, legit, prime-ti
 
 Deployment instructions for this site in production are available in the wiki for this repo.
 
-### Running unit tests
+### Running unit tests - No longer works, codebase too old.
 
 Use [jasmine](http://pivotal.github.com/jasmine/) and
 [Karma](http://karma-runner.github.io) for your unit tests/specs, but you are free
